@@ -8,25 +8,22 @@ Each project is isolated inside its own folder, keeping structure and styling se
 
 ## Repository Structure
 
-This repository is organized by project modules instead of separating files by language.
+Projects are organized by feature:
 
-HTML-CSS-MINIPROJECT/
-│
-├── projects/
-│ ├── bookshop/
-│ ├── coffee-shop/
-│ ├── ecommerce/
-│ ├── svg-animations/
-│ ├── canvas-experiment/
-│ ├── dynamic-landing/
-│ └── form-module/
-│
-├── assets/
-│ ├── images/
-│ └── audio/
-│
-└── README.md
+- **projects/**
+  - bookshop  
+  - coffee-shop  
+  - ecommerce  
+  - svg-animations  
+  - canvas-experiment  
+  - dynamic-landing  
+  - form-module  
 
+- **assets/**
+  - images  
+  - audio  
+
+- **README.md**
 
 Each project folder contains:
 
