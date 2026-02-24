@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notion Simple</title>
+<style>
+  body {
+    /* The Gradient Background */
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    font-family: sans-serif;
+    text-align: center; /* Centers everything */
+    padding-top: 50px;
+    margin: 0;
+    height: 100vh;
+    color: white;
+  }
+
+  h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: #00f5d4; /* Cyan Color */
+  }
+
+  p {
+    font-size: 20px;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+  }
+
+  button {
+    background-color: #ff006e; /* Pink Button */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 40px;
+  }
+
+  canvas {
+    border: 2px solid #ffffff33; /* Faint border to see canvas area */
+    border-radius: 10px;
+    background-color: #111827; /* Dark card background */
+  }
+</style>
+</head>
+<body>
+
+  <h1>Build something beautiful.</h1>
+  <p>Notion helps you and your team get more done.</p>
+  <button>Start Building</button>
+  <br>
+
+<canvas id="canvas" width="900" height="350"></canvas>
+
+  <script>
+    var ctx = document.getElementById("canvas").getContext("2d");
+    
+    // Set drawing style to White/Cyan
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = 3;
+
+    // Draw Stick Figure (Left)
+    ctx.beginPath();
+    ctx.arc(100, 80, 20, 0, 6.28); // Head
+    ctx.moveTo(100, 100); ctx.lineTo(100, 150); // Body
+    ctx.moveTo(100, 120); ctx.lineTo(70, 90); // Arm L
+    ctx.moveTo(100, 120); ctx.lineTo(130, 90); // Arm R
+    ctx.stroke();
+
+    // Draw Box (Right)
+    ctx.strokeStyle = "#00f5d4"; // Change color to Cyan
+    ctx.strokeRect(250, 60, 50, 50);
+    
+    // Draw Checkmark inside box
+    ctx.beginPath();
+    ctx.moveTo(260, 85);
+    ctx.lineTo(275, 100);
+    ctx.lineTo(290, 70);
+    ctx.stroke();
+  </script>
+
+</body>
+</html>

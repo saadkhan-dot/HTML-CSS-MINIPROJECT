@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css"
+</head>
+<body>
+    <style>
+        .formcontainer {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 400px;
+            margin: 0 auto;
+            background-color: antiquewhite;
+            box-shadow: gray;
+        }
+        input[required], select[required] {
+            border: 2px solid red;
+        }
+        button[type="submit"] {
+            background-color: lightblue;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <div class="formcontainer">
+        <form>
+            <label for="Name">Full Name*</label>
+            <input type="Name" placeholder="Name"><br><br>
+            <label for="Email">Email Address*</label>
+            <input type="email" placeholder="Email"><br><br>
+            <label for="Gender">Gender*</label>
+            <select id="Gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <br><br>
+            <label for="DOB">Date of Birth*</label>
+            <input type="DOB" placeholder="DOB"><br><br>
+            <label for="Password">Password*</label>
+            <input type="Password" placeholder="Password"><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
