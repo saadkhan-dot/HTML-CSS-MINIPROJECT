@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0d0d0d;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(0,0,0,0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+nav a {
+    color: #ccc;
+    margin-left: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav .active {
+    color: #d4af37;
+}
+
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    color: #d4af37;
+    margin: 0;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    margin: 10px 0;
+}
+
+.hero-content p {
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background: #d4af37;
+    border: none;
+    padding: 12px 30px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #b8962e;
+}
+
+.about {
+    display: flex;
+    padding: 100px 60px;
+    gap: 50px;
+    align-items: center;
+}
+
+.about img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #d4af37;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 10px 25px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.services {
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.services h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #d4af37;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin: 50px 0;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card h3 {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: #fff;
+}
+
+.contact {
+    display: flex;
+    padding: 80px 60px;
+    gap: 50px;
+}
+
+.contact-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #d4af37;
+}
+
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.contact-form textarea {
+    height: 120px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    color: #aaa;
+}
+
+@media (max-width: 992px) {
+    .about,
+    .contact {
+        flex-direction: column;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 50px;
+    }
+
+    .hero-content h2 {
+        font-size: 40px;
+    }
+}
+</style>
+<body>
+
+    <header>
+        <div class="logo">📷 Photography</div>
+        <nav>
+            <a class="active" href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Capturing</h2>
+            <h1>MOMENTS</h1>
+            <p>THAT LAST FOREVER</p>
+            <button class="btn">View Portfolio →</button>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80">
+        </div>
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>Hi, I'm Your Name, a passionate photographer capturing life's beautiful moments. With a keen eye for detail, I create timeless memories.</p>
+            <button class="btn-outline">Read More →</button>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>My Services</h2>
+        <div class="service-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80">
+                <h3>Portrait</h3>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80">
+                <h3>Wedding</h3>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80">
+                <h3>Landscape</h3>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80">
+                <h3>Event</h3>
+            </div>
+        </div>
+        <button class="btn">View All →</button>
+    </section>
+
+    <section class="contact">
+        <div class="contact-left">
+            <h2>Get In Touch</h2>
+            <p>Email: youremail@gmail.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Location: Your City, Country</p>
+        </div>
+        <div class="contact-form">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Message"></textarea>
+            <button class="btn">Send Message →</button>
+        </div>
+    </section>
+
+    <footer>
+        ©️ 2024 Your Photography. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
