@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Petal & Root</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+    background: #f6f2ea;
+    color: #2f3e34;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(12px);
+    background: rgba(246, 242, 234, 0.85);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #2f3e34;
+    font-weight: 500;
+}
+
+.cart-btn {
+    background: #d8a47f;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    margin-bottom: 10px;
+}
+
+.cta {
+    background: #6b8e7f;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.filters {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid #6b8e7f;
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #6b8e7f;
+    color: white;
+}
+
+.grid {
+    column-count: 4;
+    column-gap: 24px;
+    padding: 0 40px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    margin: 0 0 24px;
+    display: inline-block;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+}
+
+.image-wrapper img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.save-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 50%;
+    padding: 6px 10px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card:hover .save-btn {
+    opacity: 1;
+}
+
+.tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: #d8a47f;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: white;
+}
+
+.content {
+    padding: 16px;
+}
+
+.latin {
+    font-size: 14px;
+    color: #6b8e7f;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.add-btn {
+    background: #6b8e7f;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+.newsletter {
+    background: #2f3e34;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 80px;
+}
+
+.newsletter-form {
+    margin-top: 20px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 220px;
+}
+
+.newsletter-form button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #d8a47f;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        column-count: 1;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+</style>
+<body>
+
+    <header class="header">
+        <div class="logo">Petal & Root</div>
+        <nav>
+            <a href="#">Shop</a>
+            <a href="#">About</a>
+            <a href="#">Journal</a>
+            <a href="#">Contact</a>
+        </nav>
+        <button class="cart-btn">Cart</button>
+    </header>
+
+    <section class="hero">
+        <h1>Where Gardens Begin</h1>
+        <p>Curated botanical beauty for thoughtful spaces.</p>
+        <button class="cta">Explore Collection</button>
+    </section>
+
+    <section class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="perennial">Perennials</button>
+        <button class="filter-btn" data-filter="annual">Annuals</button>
+        <button class="filter-btn" data-filter="tropical">Tropical</button>
+        <button class="filter-btn" data-filter="wildflower">Wildflowers</button>
+    </section>
+
+    <section class="grid">
+
+        <div class="card tall" data-category="perennial">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Perennial</span>
+            </div>
+            <div class="content">
+                <h3>Garden Rose</h3>
+                <p class="latin"><em>Rosa hybrida</em></p>
+                <p>Classic layered blooms with timeless fragrance.</p>
+                <div class="card-footer">
+                    <span>$24</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="annual">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Annual</span>
+            </div>
+            <div class="content">
+                <h3>Sunflower</h3>
+                <p class="latin"><em>Helianthus annuus</em></p>
+                <p>Golden faces that follow the sun.</p>
+                <div class="card-footer">
+                    <span>$12</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card tall" data-category="perennial">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Perennial</span>
+            </div>
+            <div class="content">
+                <h3>English Lavender</h3>
+                <p class="latin"><em>Lavandula angustifolia</em></p>
+                <p>Silvery foliage with calming scent.</p>
+                <div class="card-footer">
+                    <span>$18</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="perennial">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1526470498-9ae73c665de8?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Perennial</span>
+            </div>
+            <div class="content">
+                <h3>Dutch Tulip</h3>
+                <p class="latin"><em>Tulipa gesneriana</em></p>
+                <p>Elegant spring color in sculptural form.</p>
+                <div class="card-footer">
+                    <span>$14</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card tall" data-category="tropical">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Tropical</span>
+            </div>
+            <div class="content">
+                <h3>Moth Orchid</h3>
+                <p class="latin"><em>Phalaenopsis amabilis</em></p>
+                <p>Graceful blooms with long-lasting elegance.</p>
+                <div class="card-footer">
+                    <span>$32</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card wide" data-category="perennial">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1599733589046-10c005739e27?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Perennial</span>
+            </div>
+            <div class="content">
+                <h3>Bigleaf Hydrangea</h3>
+                <p class="latin"><em>Hydrangea macrophylla</em></p>
+                <p>Cloud-like clusters in soft pastel tones.</p>
+                <div class="card-footer">
+                    <span>$28</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="wildflower">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1597848212624-9a9e28d9a8ad?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Wildflower</span>
+            </div>
+            <div class="content">
+                <h3>German Chamomile</h3>
+                <p class="latin"><em>Matricaria chamomilla</em></p>
+                <p>Delicate blooms with soothing heritage.</p>
+                <div class="card-footer">
+                    <span>$10</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card tall" data-category="perennial">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Perennial</span>
+            </div>
+            <div class="content">
+                <h3>Dinner-Plate Dahlia</h3>
+                <p class="latin"><em>Dahlia pinnata</em></p>
+                <p>Bold, oversized blooms in rich hues.</p>
+                <div class="card-footer">
+                    <span>$22</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card tall" data-category="tropical">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1587502536263-3d5a6b1a7d7e?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Tropical</span>
+            </div>
+            <div class="content">
+                <h3>Bird of Paradise</h3>
+                <p class="latin"><em>Strelitzia reginae</em></p>
+                <p>Striking architectural tropical bloom.</p>
+                <div class="card-footer">
+                    <span>$36</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="perennial">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1501876991173-f9c47cd28268?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Perennial</span>
+            </div>
+            <div class="content">
+                <h3>Oriental Poppy</h3>
+                <p class="latin"><em>Papaver orientale</em></p>
+                <p>Silky petals with dramatic centers.</p>
+                <div class="card-footer">
+                    <span>$16</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card wide" data-category="perennial">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Perennial</span>
+            </div>
+            <div class="content">
+                <h3>Garden Peony</h3>
+                <p class="latin"><em>Paeonia lactiflora</em></p>
+                <p>Lush blooms with romantic fullness.</p>
+                <div class="card-footer">
+                    <span>$30</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="annual">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1592928307043-0b3f6b0e5d02?auto=format&fit=crop&w=800&q=80">
+                <button class="save-btn">♡</button>
+                <span class="tag">Annual</span>
+            </div>
+            <div class="content">
+                <h3>African Marigold</h3>
+                <p class="latin"><em>Tagetes erecta</em></p>
+                <p>Vibrant clusters that brighten borders.</p>
+                <div class="card-footer">
+                    <span>$11</span>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="newsletter">
+        <h2>Join Our Garden Letter</h2>
+        <p>Seasonal planting notes, early access, and botanical stories.</p>
+        <div class="newsletter-form">
+            <input type="email" placeholder="Your email">
+            <button>Subscribe</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>©️ 2026 Petal & Root</p>
+    </footer>
+
+<script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelector('.filter-btn.active').classList.remove('active');
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                setTimeout(() => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'inline-block';
+                        setTimeout(() => card.style.opacity = '1', 50);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }, 200);
+            });
+        });
+    });
+
+    document.querySelectorAll('.save-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('saved');
+            btn.textContent = btn.classList.contains('saved') ? '♥️' : '♡';
+        });
+    });
+</script>
+
+</body>
+</html>
